@@ -1,0 +1,212 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  
+<head> 
+   <meta charset="utf-8" />
+   <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <link rel="stylesheet"
+          href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+  </script> 
+    <script src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> 
+  </script> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+  
+</head>
+<style type="text/css">
+	body{
+		margin:0;
+		padding: 0;
+		font-size: 20px;
+		font-weight: 30px;
+		font-family: sans-serif;
+		color: #fff;
+		 background-image: linear-gradient(35deg,white,green);
+	}
+	h1{
+		font-size:40px;
+		font-weight:700;
+		font-family: sans-serif;
+		color:black;
+		text-align: center;
+		text-shadow: 2px 2px 5px #fff;
+	}
+	.container{
+		width:80%;
+		margin-top:10px;
+		height:70%;
+		position:absolute;
+		left:10%;
+		box-shadow:1px 1px 6px 2px #fff;
+		background:linear-gradient(to right, #000, #fff);
+		
+	}
+
+	input[type="text"]{
+		height:50px; 
+        margin-left:21%; 
+        width:55%;
+        /* bottom:100px; */
+        color: black;  
+		margin-bottom: 10px;
+		padding-left:10px;
+		margin-top:10px;
+
+	}
+	button{
+        color:green;
+		height:50px;
+		width:50px;
+		background: #fff;
+        border:3px solid black;
+	}
+	.btn i:hover {
+  background-color:#009688;
+  color:#fff;
+}
+.btn:hover{
+	 background-color:#009688;
+  color:#fff;
+}
+	.task-todo{
+		margin-top:10px;
+		float: left;
+		width:45%;
+		height:85%;
+		box-shadow:inset 1px 1px 4px 2px #fff;
+	}
+	.task-todo .task{
+		background:rgba(255,255,255,0.7);
+		color:black;
+		height:40px;
+		margin:10px 10px 0 10px;
+		padding:5px 0 0 5px;
+		text-align: center;
+	}
+
+
+	.completed-task{
+	    margin-top:10px;
+		float: right;
+		width:45%;
+		height:85%;
+		box-shadow:1px 1px 6px 2px #000;
+	}
+	.completed-task .task{
+		background: rgba(0,0,0,0.4);
+		color: #fff;
+		height:40px;
+		margin:10px 10px 0 10px;
+		padding:5px 0 0 5px;
+		text-align: center;
+	}
+	h3{
+		text-align: center;
+		color:#009688;
+		text-decoration:underline;
+		font-size: 30px;
+		font-weight: bolder;
+	}
+	
+	.completed-task .task{
+		background: rgba(0,0,0,0.4);
+		color: #fff;
+		height:40px;
+		margin:10px 10px 0 10px;
+		padding:5px 0 0 5px;
+		text-align: center;
+	}
+	
+	.fa-trash,.fa-check{
+		float: right;
+		margin-right:20px;
+		color:#009081;
+		padding-top:5px;
+		cursor: pointer;
+	}
+	.completed-task .fa-trash:hover {
+     color:#fff;
+}
+.fa-check {
+     color:#009688;
+}
+
+	
+
+          
+</style>
+<body>
+	<h1>TODO LIST</h1>
+    <input class="hello"type="text"  placeholder="Add Task" id="text">
+       <button class="btn"> 
+          <i class="glyphicon glyphicon-plus"></i></button> 
+     
+	<div class="container">
+        
+		<div class="task-todo">
+			<h3>Task Todo</h3>
+			
+		</div>
+		<div class="completed-task">
+			<h3>Completed Task</h3>
+			
+		</div>
+        
+		</div>
+        
+       
+        
+ 
+
+        <script type="text/javascript">
+        	
+        	$(document).ready(function(){
+
+              $('.btn').click(function(){
+
+              // If something is written 
+
+                if ($('#text').val().length != 0)
+              	{
+              		var x = $("<div class='task'></div>").text($('#text').val());
+
+              		var dlt = $("<i class='fa fa-trash'>").click(function(){
+              			var a = $(this).parent();
+              			a.fadeOut(function(){
+                         a.remove();
+              			});
+              		});
+
+              		var chk = $("<i class='fa fa-check'>").click(function(){
+              			var b = $(this).parent();
+              			b.fadeOut(function(){
+                        $('.completed-task').append(b);
+                        b.fadeIn();
+ 
+              			});
+              			$(this).remove();
+              		});
+
+              		x.append(dlt,chk);
+
+              		$('.task-todo').append(x);
+
+              		$('#text').val("");
+              		
+             	}
+              	else alert("Enter some Text!"); 
+           
+                 });
+
+              });
+
+            
+        </script>
+   
+		
+</body>
+</html>
